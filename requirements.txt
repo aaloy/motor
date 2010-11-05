@@ -1,0 +1,19 @@
+#lista de requerimientos del motor
+-e svn+http://code.djangoproject.com/svn/django/trunk/
+Sphinx
+pep8
+-e git://github.com/jbalogh/check.git#egg=check
+-e git://github.com/robhudson/django-debug-toolbar.git#egg=django_debug_toolbar
+-e git://github.com/django-extensions/django-extensions.git#egg=django_extensions
+#-e hg+http://bitbucket.org/andrewgodwin/south/#egg=south
+south
+-e git://github.com/jbalogh/django-nose.git#egg=django-nose
+ipython
+ipdb
+coverage
+pylint
+django_bshell
+gunicorn
+-e hg+http://bitbucket.org/bkroeze/django-keyedcache/#egg=keyedcache
+django-simple-captcha
+-e git://github.com/howiworkdaily/django-faq.git#egg=django_faq

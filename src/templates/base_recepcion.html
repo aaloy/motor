@@ -1,0 +1,62 @@
+{% load i18n recepcion_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>{% block title %} base {% endblock title %}</title>
+  <!-- Framework CSS -->
+  <link rel="stylesheet" href="{{MEDIA_URL}}blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="{{MEDIA_URL}}blueprint/print.css" type="text/css" media="print">
+  <!--[if lt IE 8]><link rel="stylesheet" href="{{MEDIA_URL}}blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+  <link href="{{MEDIA_URL}}css/dropdown/themes/flickr.com/helper.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="{{MEDIA_URL}}css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="{{MEDIA_URL}}css/dropdown/themes/flickr.com/default.ultimate.css" media="screen" rel="stylesheet" type="text/css" />
+  {% block page_css %}{% endblock page_css %}
+  {% block extra_css %}{% endblock extra_css %}
+</head>
+{% get_hotels as hoteles %}
+<body>
+  <div class="container showgrid">
+    <div class="span-24" id="menu">
+      <ul id="nav" class="dropdown dropdown-horizontal">
+          <li><a href="/">Inicio</a></li>
+          <li><span class="dir">Contratos</span>
+              <ul>
+                <li><a href="{% url listado-contratos %}">Listado completo</a></li>
+                <li><a href="{% url listado-hoteles %}">Listado hoteles</a></li>
+                  <li><span class="dir">Hoteles</span>
+                  <ul>
+                      {% for hotel in hoteles %}
+                      <li><a href="{% url contrato-hotel hotel.slug %}">{{hotel.nombre}}</a></li>
+                      {% endfor %}
+                      </ul>
+                </li>
+                <li><a href="{% url nuevo-contrato %}">Nuevo contrato</a></li>
+
+              </ul>
+          </li>
+          <li><span class="dir">Disponibilidad</span>
+              <ul>
+                <li><a href="{% url disponibilidad %}">Formulario de Disponibilidad</a></li>
+                <li><a href="{% url disponibilidad-2ad %}">Disponibilidad 2AD</a></li>
+                <li><a href="{% url disponibilidad-2ad-1n %}">Disponibilidad 2AD 1N</a></li>
+              </ul>
+          </li>
+          <li><a href="./" class="dir">Contacta con APSL</a>
+            <ul>
+                  <li><a href="http://apsl.net">Web de APSL</a></li>
+                  <li><a href="{% url ct-form %}">Formulario de contacto</a></li>
+                  <li><a href="/faq/">FAQs</a></li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+  {% block content%}{% endblock content %}
+</div>
+{% block js %}
+  <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-1.4.2.min.js"></script>
+{% endblock  %}
+{% block page_js %}
+{% endblock  %}
+</body>

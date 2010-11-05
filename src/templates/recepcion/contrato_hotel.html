@@ -1,0 +1,6 @@
+{% extends "base_recepcion.html" %}
+{% block content %}
+{% with object as hotel %}
+  {% include "recepcion/contrato.html" %}
+{% endwith %}
+{% endblock content %}

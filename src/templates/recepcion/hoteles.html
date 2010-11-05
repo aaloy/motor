@@ -1,0 +1,9 @@
+{% extends "base_recepcion.html" %}
+{% load recepcion_tags %}
+{% block content %}
+<ul>
+{% for hotel in object_list %}
+<li>{{hotel.nombre}} <a href="{% url contrato-hotel hotel.slug %}">Ver contrato</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}

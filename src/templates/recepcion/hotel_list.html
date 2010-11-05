@@ -1,0 +1,7 @@
+{% extends "base_recepcion.html" %}
+{% load recepcion_tags %}
+{% block content %}
+{% for hotel in object_list %}
+  {% include "recepcion/contrato.html" %}
+{% endfor %}
+{% endblock content %}

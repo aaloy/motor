@@ -1,0 +1,168 @@
+{% load recepcion_tags %}
+<h1>{{hotel.nombre}}</h1>
+    <h2>Lista de contratos</h2>
+{% for contrato in hotel.contrato_set.all %}
+  <div class="prepend-1 span-22 last"><h3>{{contrato.nombre}}</h3></div>
+  <div class="prepend-2 span-22 last">
+        <p>Fecha: {{contrato.fecha_inicio|date:"SHORT_DATE_FORMAT"}} a {{contrato.fecha_fin|date:"SHORT_DATE_FORMAT"}}</p>
+        <p>Activo: {{contrato.activo|check}} | Revisado: {{contrato.revisado|check}}</p>
+        <hr/>
+        <table>
+        <tr>
+        <th>Desde</th>
+        <th>Hasta</th>
+        <th>Regimen</th>
+        <th>Tipo Habitaci&oacute;n</th>
+        <th>Precio</th>
+        <th>Cupo</th>
+        <th>Paro ventas</th>
+        <th>Venta libre</th>
+        <th>Generado</th>
+        <th></th>
+        </tr>
+        {% for c in contrato.condicionescontrato_set.all %}
+        <tr>
+            <td>{{c.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td>
+            <td>{{c.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td>
+            <td>{{c.regimen.slug}}</td>
+            <td>{{c.tipo_habitacion.slug}}</td>
+            <td>{{c.precio}}</td>
+            <td>{{c.cupo}}</td>
+            <td>{{c.is_paro_ventas|check}}</td>
+            <td>{{c.is_venta_libre|check}}</td>
+            <td>{{c.is_cupo_generado|check}}</td>
+            <td><a href="/motor/condiciones_contrato/{{c.contrato.id}}/{{c.id }}/">Editar</a></td>
+        </tr>
+        {% endfor %}<!--fin condiciones contrato -->
+        </table>
+        <p><a href="/motor/condiciones_contrato/{{contrato.id}}/">Nueva condición</a></p>
+        <h3>Descuento niños</h3>
+        <table>
+          <tr><th>Fecha inicio</th><th>Fecha fin</th>
+              <th>Tipo Hab.</td><td>% 1er nin.</th>
+              <th>% 2n nin.</th><th> % 3r nin.</th>
+              <th></th>
+          </tr>
+          {% for d in contrato.descuentonin_set.all %}
+          <tr>
+            <td>{{d.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td>{{d.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td>
+            <td>{{d.tipo_habitacion.slug}}</td><td>{{d.porcentaje|percent}}</td>
+            <td>{{d.porcentaje_2|percent}}</td><td>{{d.porcentaje_3|percent}}</td>
+            <td><a href="/motor/descuento_ninyos/{{d.contrato.id}}/{{d.id}}/">Editar</a></td>
+          </tr>
+          {% empty %}
+            <tr><td colspan="6"><strong>Sin descuento ninyos</td></tr>
+          {% endfor %}
+        </table>
+        <p><a href="/motor/descuento_ninyos/{{contrato.id}}/">Nuevo descuento</a></p>
+        <h3>Suplementos</h3>
+        <h4>Suplemento ocupaci&oacute;n</h4>
+        <table>
+          <tr><th >Fecha inicio</th><th>fecha fin</th><td>tipo hab.</th><th>precio</th><th>% dto</th><th></th>
+            {% for s in contrato.suplementoocupacion_set.all %}
+              <tr >
+                <td>{{s.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td>{{s.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td><td>{{s.tipo_habitacion.slug}}</td>
+                <td>{{s.precio}}</td><td>{{s.porcentaje|percent}}</td>
+                <td><a href="/motor/suplemento_ocupacion/{{contrato.id}}/{{s.id}}/">Editar</a></td>
+              </tr>
+            {% empty %}
+            <tr><td colspan="5"><strong>Sin suplementos de ocupaci&oacute;n</strong></td>
+            </tr>
+          {% endfor %}
+        </table>
+        <p><a href="/motor/suplemento_ocupacion/{{contrato.id}}/">Nuevo suplemento</a></p>
+        {% with contrato.hotel.suplementoregimen_set.all as splr %}
+        <h4>Suplementos Regimen</h4>
+        {% if splr %}
+        <table>
+          <tr >
+            <th >Fecha inicio</th><th >Fecha</th><th >Regimen</th><th >Precio</th><th >% inc</th><th></th>
+          </tr>
+          {% for s in splr %}
+          <tr >
+            <td >{{s.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td >{{s.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td><td >{{s.regimen.slug}}</td>
+            <td >{{s.precio}}</td><td >{{s.porcentaje}}</td>
+            <td><a href="/motor/suplemento_regimen/{{contrato.hotel.id}}/{{s.id}}/">Editar</a></td>
+          </tr>
+         {% endfor %}
+        </table>
+        {% else %}
+        <p><strong>Sin suplementos de r&eacute;gimen definidos</strong></p>
+        {% endif %}
+        <p><a href="/motor/suplemento_regimen/{{contrato.hotel.id}}/">Nuevo</a></p>
+        {% endwith %}
+        {% with contrato.suplementodia_set.all as spld %}
+        <h4>Suplementos d&iacute;a</h4>
+        {% if spld %}
+        <table border="1">
+          <tr >
+            <th >Fecha</th><th >Descripci&oacute;n</th><th >Precio</th>
+            <th >Aplicabilidad</th><th >Porcentaje</th>
+          </tr>
+          {% for s in spld %}
+          <td >{{s.fecha|date:"SHORT_DATE_FORMAT"}}</td><td >{{s.descripcion}}</td><td >{{s.precio}}</td>
+          <td >{{s.aplicabilidad}}</td><td >{{s.porcentaje}}</td>
+          {% endfor %}
+        </table>
+        {% endif %}
+        {% endwith %}
+        <p><a href="/motor/suplemento_dia/{{contrato.id}}/">Nuevo Suplemento Día</a></p>
+        <h3>Restricciones</h3>
+        {% with contrato.restriccionestanciaminima_set.all as restr %}
+            <h4>Estancia m&iacute;nima</h4>
+            {% if restr %}
+              <table summary="Resticciones de estancia minima" class="restriccion" width="100%" cellspacing="2" cellpadding="2" border="1">
+                <tr >
+                  <th >Fecha Inicio</th>
+                  <th >Fecha Fin</th><th >Minimo noches</th><th >M&aacute;ximo noches</th>
+                  <th></th>
+                </tr>
+                {% for r in restr %}
+                <tr>
+                <td >{{r.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td >{{r.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td><td >{{r.minimo_noches}}</td>
+                <td >{{r.maximo_noches}}</td>
+                <td><a href="/motor/restriccion_estancia_minima/{{contrato.id}}/{{restr.id}}/">Editar</a></td>
+                </tr>
+                {% endfor %}
+          </table>
+          {% endif %}
+        <p><a href="/motor/restriccion_estancia_minima/{{contrato.id}}/">Nueva restricción</a>
+        {% endwith %}
+        {% with contrato.restriccionocupacion_set.all as restoc %}
+          <h4>Restricciones de ocupaci&oacute;n</h4>
+          {% if restoc %}
+          <table>
+            <tr>
+              <th>Fecha inicio</th><th>Fecha fin</th><th>Tipo Habit.</th>
+              <th>Min. Adultos</th><th>Max. Adultos</th><th>Max. nin</th>
+            </tr>
+            {% for r in contrato.restriccionocupacion_set.all %}
+            <tr>
+              <td>{{r.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td>{{r.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td>
+              <td>{{r.tipo_habitacion.slug}}</td><td>{{r.minimo_adultos}}</td>
+              <td>{{r.maximo_adultos}}</td><td>{{r.maximo_nins}}</td>
+              <td><a href="/motor/restriccion_ocupacion/{{contrato.id}}/{{restoc.id}}/">Editar</a></td>
+            </tr>
+            {% endfor %}
+            <table>
+            {% endif %} 
+            {% endwith %}
+            <p><a href="/motor/restriccion_ocupacion/{{contrato.id}}/">Nueva restricción de ocupación</a></p>
+            {% with contrato.restriccionblackout_set.all as restbl %}
+            <h4>Restricciones de Blackout</h4>
+            {% if restbl %}
+            <table>
+              <tr><th>Fecha inicio</th><th>Fecha fin</th><th>D&iacute;as antelaci&oacute;n</th></tr>
+              {% for r in restbl %}
+              <tr>
+                <td>{{r.fecha_inicio|date:"SHORT_DATE_FORMAT"}}</td><td>{{r.fecha_fin|date:"SHORT_DATE_FORMAT"}}</td><td>{{r.minimo_dias}}</td>
+                <td><a href="/motor/restriccion_blackout/{{contrato.id}}/{{r.id}}/">Editar</a></td>
+              </tr>
+              {% endfor %}
+            </table>
+            {% endif %}
+            <p><a href="/motor/restriccion_blackout/{{contrato.id}}/">Nuevo blackout</a></p>
+            {% endwith %}
+            </div><!--contrato-->
+            {% endfor %}
+

@@ -1,0 +1,45 @@
+{% extends "faq/base.html" %}
+
+{% block title %}Preguntas más frecuentes {% endblock %}
+
+{% block faqs %}
+<div class="span-24">
+<h1>Preguntas más frecuentes</h1>
+<p>
+<small>Última actualización: {{ updated_on|date:"M d, Y" }}</small>
+</p>
+</div>
+<div class="prepend-1 span-20 last">
+<h3>Preguntas</h3>
+<ol>
+{% for question in object_list %}
+{% if question.is_header %}
+<h4>{{ question.text }}</h4>
+{% else %}
+<li>
+<a href="#{{ question.slug }}">{{ question.text }}</a>
+</li>
+{% endif %}
+{% endfor %}
+</ol>
+</div>
+<div class="prepend-1 span-20 last">
+<hr/>
+<h3>Respuestas</h3>
+<ol>
+{% for question in object_list %}
+{% if question.is_active %}
+<li>
+<a id="{{ question.slug }}">
+{{ question.text }}
+</a><p>
+{% autoescape off %}
+{{ question.answer }}
+{% endautoescape %}
+</p>
+</li>
+{% endif %}
+{% endfor %}
+</ol>
+</div>
+{% endblock %}

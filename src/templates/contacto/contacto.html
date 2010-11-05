@@ -1,0 +1,15 @@
+{% extends "base_recepcion.html" %}
+{% block content %}
+  <div class="prepend-top span-14 last">
+  <form class="contactForm" method='POST' action="{% url ct-form %}">
+    <table>
+      {{form}}
+      <tr><td colspan="2">
+      <input type="submit" class="bt" value="Send &raquo;" />
+      <input type="reset" class="bt" value="Reset -" />
+      </td></tr>
+    </table>
+    </form>
+  </div>
+{% endblock content%}
+

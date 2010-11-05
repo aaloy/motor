@@ -1,0 +1,33 @@
+{% extends "base_recepcion.html" %}
+{% load recepcion_tags %}
+{% block page_css %}
+<link type="text/css" href="{{MEDIA_URL}}css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+{% endblock page_css %}
+{% block content %}
+  <div class="prepend-1 span-22 last"><h3>{{contrato.nombre}}</h3></div>
+  <div class="prepend-2 span-22 last">
+        <p>Fecha: {{contrato.fecha_inicio|date:"SHORT_DATE_FORMAT"}} a {{contrato.fecha_fin|date:"SHORT_DATE_FORMAT"}}</p>
+        <p>Activo: {{contrato.activo|check}} | Revisado: {{contrato.revisado|check}}</p>
+        <hr/>
+      </div> 
+  
+      <div class="prepend-1 span-23 last">
+        <h2>{{name}}</h2>
+<form class="formx" action="." method="post" accept-charset="utf-8">
+  
+<table>
+  {{form}}
+</table>
+
+
+<p><input class="form-button" type="submit" value="Continue &rarr;"></p>
+</form>
+</div>
+{% endblock content %}
+{% block page_js %}
+      <script type="text/javascript">
+        var MEDIA_URL = "{{MEDIA_URL}}";
+      </script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-ui-1.8.custom.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/contrato.js"></script>
+{% endblock page_js %}

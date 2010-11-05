@@ -1,0 +1,10 @@
+Hola!
+
+Ha habido una petición de contacto desde el motor de hoteles:
+
+{{contacto.nombre}}
+{{contacto.email}}
+
+Mensaje:
+{{contacto.mensaje}}
+

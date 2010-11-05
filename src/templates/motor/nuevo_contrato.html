@@ -1,0 +1,25 @@
+{% extends "base_recepcion.html" %}
+{% load recepcion_tags %}
+{% block page_css %}
+<link type="text/css" href="{{MEDIA_URL}}css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+{% endblock page_css %}
+{% block content %}
+<div class="span-22 last">
+<form action="{% url nuevo-contrato %}" method="post" accept-charset="utf-8">
+  
+<table>
+  {{form}}
+</table>
+
+
+<p><input type="submit" value="Continue &rarr;"></p>
+</form>
+</div>
+{% endblock content %}
+{% block page_js %}
+      <script type="text/javascript">
+        var MEDIA_URL = "{{MEDIA_URL}}";
+      </script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-ui-1.8.custom.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/contrato.js"></script>
+{% endblock page_js %}

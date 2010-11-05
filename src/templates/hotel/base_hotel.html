@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Hotel and Travel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="{{MEDIA_URL}}css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="website_title">
+      <div id="title"> Hotel &amp; Travel </div>
+      <div id="salgon"> The best service at the lowest price</div>
+    </div>
+  </div>
+  <!-- end of header -->
+  <div id="banner">
+    {% block menu %}
+    <div id="menu">
+      <ul>
+        <li><a href="#" class="current">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Bookings</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#" class="last">Contact</a></li>
+      </ul>
+    </div>
+    {% endblock menu %}
+  </div>
+  <!-- end of banner -->
+  <div id="content">
+    <div id="content_left">
+      <div class="content_left_section">
+        <div class="content_title_01">Bookinxxxxg</div>
+        {% block buscador %}
+        {% include "hotel/buscador.html" %}
+        <form method="get" action="#">
+          <div class="form_row">
+            <label>Arrival</label>
+            <select name="day">
+              <option>1</option>
+              <option>31</option>
+            </select>
+            <select name="month">
+              <option>Jan</option>
+              <option>Dec</option>
+            </select>
+            <select name="year">
+              <option>2010</option>
+              <option>2011</option>
+            </select>
+          </div>
+          <div class="form_row">
+            <label>Departure</label>
+            <select name="day">
+              <option>1</option>
+            </select>
+            <select name="month">
+              <option>Jan</option>
+              <option>Dec</option>
+            </select>
+            <select name="year">
+              <option>2010</option>
+              <option>2011</option>
+            </select>
+          </div>
+          <div class="form_row">
+            <label>Persons:</label>
+            <input class="inputfield" name="person" type="text" style="width: 30px; margin-right: 20px;" />
+            <label>Rooms:</label>
+            <input class="inputfield" name="person" type="text" style="width: 30px;" />
+          </div>
+          <div class="cleaner_h20">&nbsp;</div>
+          <div class="rc_btn_01"><a href="#">Check Availability</a></div>
+        </form>
+        {% endblock buscador %}
+        <div class="cleaner">&nbsp;</div>
+      </div>
+      <!-- end of booking -->
+      <div class="cleaner_h30">&nbsp;</div>
+      <div class="cleaner_horizontal_divider_01">&nbsp;</div>
+      <div class="cleaner_h30">&nbsp;</div>
+      <div class="content_left_section">
+        {% block noticias %}
+        <div class="content_title_01">Latest News</div>
+        <div class="news_title">Nam auctor aliquam leo</div>
+        <p>Pellentesque est elit, sagittis sit amet porttitor ut, ornare vel turpis. Vivamus eu enimvitae neque its posuere rutrum. <a href="#">read more</a></p>
+        <div class="cleaner_h30">&nbsp;</div>
+        <div class="news_title">Suspendisse pharetra eros molestie</div>
+        <p>Vivamus eu enimvitae neque its posuere rutrum. Nam accumsan turpis at turpis molestie a convallis forte tor ornare. <a href="#">read more</a></p>
+        <div class="cleaner_h20">&nbsp;</div>
+        <div class="rc_btn_02"><a href="#">View All</a></div>
+        {% endblock noticias %}
+      </div>
+      <!-- end of news section -->
+      <div class="cleaner_h30">&nbsp;</div>
+      <div class="cleaner_horizontal_divider_01">&nbsp;</div>
+      <div class="cleaner_h30">&nbsp;</div>
+      <a href="#"><img src="{{MEDIA_URL}}images/special_offer.jpg" alt="" /></a>
+      <div class="cleaner_h30">&nbsp;</div>
+    </div>
+    <!-- end of content left -->
+    <div id="content_right">
+      <div class="content_right_section">
+        {% block content_right %}
+        <div class="content_title_01">Welcome to hotel &amp; travel</div>
+        <img src="{{MEDIA_URL}}images/image_01.jpg" alt="" />
+        <p>This is a free website template provided by TemplateMo.com. You may download, modify and apply this layout for your personal or business websites. Credit goes to photovaco.com for photos.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum, urna eu feugiat ultricies, turpis leo tempor lacus, in vestibulum diam nisl sed lorem. </p>
+        <p>Mauris at tortor non mauris rhoncu vesti bulum. Praesent purus nuncn com modo metus. Mae cen astin cidu tellus et risus com modo lobor tiSed alique.</p>
+      </div>
+      <div class="cleaner_h40">&nbsp;</div>
+      <div class="content_right_2column_box">
+        <div class="content_title_01">Tour Guides</div>
+        <p>Curabitur tempor mattis placerat. Duis malesuada posuere magna at fermentum.</p>
+        <ul>
+          <li>Quisque facilisis suscipit elit</li>
+          <li>Lacus et dictum tristique</li>
+          <li>Eeros ac tincidunt aliquam</li>
+          <li>Nullam commodo arcu non facilisis</li>
+          <li>Duis commodo erat</li>
+        </ul>
+        <div class="cleaner_h10">&nbsp;</div>
+        <div class="rc_btn_02"><a href="#">View All</a></div>
+      </div>
+      <div class="content_right_2column_box">
+        <div class="content_title_01">Services</div>
+        <p>Donec eget ligula metus. In sapien nibh, tincidunt non ultricies vel, molestie quis massa. </p>
+        <ul>
+          <li>Cras metus lectus</li>
+          <li>Mauris vitae lacinia tortor</li>
+          <li>Suspendisse potenti</li>
+          <li>Pellentesque tincidunt magna</li>
+        </ul>
+        <div class="cleaner_h10">&nbsp;</div>
+        <div class="rc_btn_02"><a href="#">View All</a></div>
+      </div>
+      <div class="cleaner_h40">&nbsp;</div>
+      <div class="content_right_section">
+        <div class="content_title_01">Gallery</div>
+        <div class="gallery_box"> <img src="{{MEDIA_URL}}images/image_02.jpg" alt="" /> <a href="#">one</a> </div>
+        <div class="gallery_box"> <img src="{{MEDIA_URL}}images/image_03.jpg" alt="" /> <a href="#">two</a> </div>
+        <div class="gallery_box"> <img src="{{MEDIA_URL}}images/image_04.jpg" alt="" /> <a href="#">three</a> </div>
+        <div class="gallery_box"> <img src="{{MEDIA_URL}}images/image_05.jpg" alt="" /> <a href="#">four</a> </div>
+        <div class="gallery_box"> <img src="{{MEDIA_URL}}images/image_06.jpg" alt="" /> <a href="#">five</a> </div>
+        <div class="cleaner_h20">&nbsp;</div>
+        <div class="rc_btn_02"><a href="#">View All</a></div>
+        <div class="cleaner">&nbsp;</div>
+      </div>
+      <div class="cleaner_h20">&nbsp;</div>
+      {% endblock content_right %}
+    </div>
+    <!-- end of content right -->
+    <div class="cleaner">&nbsp;</div>
+  </div>
+  <div id="footer"> Copyright &copy; 2024 <a href="#"><strong>APSL.net</strong></a> | Designed by <a href="http://www.templatemo.com">Free CSS Templates</a>
+    <div style="clear: both; margin-top: 10px;"> <a href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="" width="88" height="31" vspace="8" border="0" /></a> <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"  src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="" vspace="8" border="0" /></a> </div>
+  </div>
+  <!-- end of footer -->
+</div>
+<!-- end of container -->
+{% block page_js %}
+      <script type="text/javascript">
+        var MEDIA_URL = "{{MEDIA_URL}}";
+      </script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-1.4.2.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-ui-1.8.custom.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/buscador.js"></script>
+{% endblock page_js %}
+</body>
+</html>

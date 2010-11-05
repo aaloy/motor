@@ -1,0 +1,98 @@
+{% extends "base_recepcion.html" %}
+{% load recepcion_tags %}
+{% block page_css %}
+<link type="text/css" href="{{MEDIA_URL}}css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+{% endblock page_css %}
+{% block content %}
+<div class="span-6">
+  Buscador
+<form action="." method="post" accept-charset="utf-8">
+         <div id="hotel" class="span-6 last">
+           <label for="hotel">{{form.hotel.label}}</label>
+           {{form.hotel}}
+          </div>
+          <div id="selector_fino" class="span-6 last">
+            <label for="id_fecha_llegada">{{form.fecha_llegada.label}}</label>
+            {{form.fecha_llegada}}
+            <label for="id_fecha_salida">{{form.fecha_salida.label}}</label><br/>
+            {{form.fecha_salida}}
+          </div>
+          <div id="habitaciones" class="span-6 last">
+            <label for="id_habitaciones">Habitaciones</label>
+            {{form.habitaciones}}
+            </div>
+            <div id="distri_1">
+              Adultos {{form.adultos_d1}}
+              Niños {{form.nins_d1}}
+              <div id="edad_nin_d1" class="span-6 last" style="display:none;">
+                Edad de los niños en Habitación 1 <br/>
+                {{form.edad_nin1_d1}}
+                {{form.edad_nin2_d1}}
+                {{form.edad_nin3_d1}}
+              </div>
+           </div>
+          <div id="distri_2" style="display:none;">
+              Adultos {{form.adultos_d2}}
+              Niños {{form.nins_d2}}
+                <div id="edad_nin_d2" class="span-6 last" style="display:none;">
+                Edad de los niños en Habitación 2 <br/>
+                {{form.edad_nin1_d2}}
+                {{form.edad_nin2_d2}}
+                {{form.edad_nin3_d2}}
+               </div>
+              </div>
+          <div id="distri_3" style="display:none;"> 
+              Adultos {{form.adultos_d3}}
+              Niños {{form.nins_d3}} 
+             <div id="edad_nin_d3" class="span-6 last" style="display:none;">
+                Edad de los niños en Habitación 3 <br/>
+                {{form.edad_nin1_d3}}
+                {{form.edad_nin2_d3}}
+                {{form.edad_nin3_d3}}
+              </div>
+            </div>
+            <div id="captcha">
+                {{form.captcha}}
+            </div>
+         <p><input type="submit" value="Buscar &rarr;"></p>
+        </form>
+      </div>
+      <div class="span-12 last">
+      {% if consulta %}
+        <h2>Consulta</h2>
+        <dl>
+          <dt>Fecha Entrada:</dt><dd>{{consulta.entrada}}</dd>
+          <dt>Fecha Salida:</dt><dd>{{consulta.salida}}</dd>
+          <dt>Noches:</dt><dd>{{consulta.noches}}</dd>
+          <dt>Habitaciones:</dt><dd>{{consulta.num_habitaciones}}</dd>
+          <dt>Tipo Habitación:</dt><dd>{% if consulta.tipo_habitacion %}{{consulta.tipo_habitacion}}{% else %}Cualquiera{% endif %}</dd>
+          <dt>Adultos:</dt><dd>{{consulta.adultos}}</dd>
+          <dt>Niños (Los menores de 2 años se consideran bebés):</dt><dd>{{consulta.ninyos}}</dd>
+          <dt>Hotel:</dt><dd>{% if consulta.hotel %} {{consulta.hotel.nombre}} {% else %} Todos {% endif %}</dd>
+        </dl>
+        {% for k, hotel in dispo.hoteles.items %}
+        <h2>Hotel: {{hotel.slug}}</h2>
+        <table>
+        {% for kh, habitacion in hotel.habitaciones.items %}
+        <tr><td>{{kh}}</td><td>{{habitacion.tipo}}</td><td>{{habitacion.regimen}}</td><td>{{habitacion.precio}}&nbsp;€
+       </td></tr>
+        {% endfor %}
+      </table>
+        <h5>Suplementos</h5>
+        <table>
+            {% for ts, supl in hotel.suplementos_regimen.items %}
+            <tr><td>{{supl.1}}:</td><td>{{supl.0}} €</td></tr>
+            {% endfor %}
+         </table> 
+        {% empty %}
+        <p>No se encontró disponibilidad</p>
+        {% endfor %}
+      {% endif %}
+{% endblock content %}
+{% block page_js %}
+      <script type="text/javascript">
+        var MEDIA_URL = "{{MEDIA_URL}}";
+      </script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery/jquery-ui-1.8.custom.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/buscador.js"></script>
+{% endblock page_js %}
