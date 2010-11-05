@@ -1,0 +1,5 @@
+Motor se distribuye bajo la licencia Alfero
+http://www.gnu.org/licenses/agpl.html, consulte la disponibilidad
+de otros tipos de licenciamiento
+
+
