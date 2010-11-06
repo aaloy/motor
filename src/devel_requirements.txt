@@ -1,12 +1,9 @@
-#lista de requerimientos del motor
-django==1.2.1
+#lista de requerimientos del motor en desarrollo
+django
+pil
 Sphinx
 pep8
--e git://github.com/jbalogh/check.git#egg=check
--e git://github.com/robhudson/django-debug-toolbar.git#egg=django_debug_toolbar
--e git://github.com/django-extensions/django-extensions.git#egg=django_extensions
 south
--e git://github.com/jbalogh/django-nose.git#egg=django-nose
 ipython
 ipdb
 coverage
@@ -14,5 +11,9 @@ pylint
 gunicorn
 django-simple-captcha
 simplejson
+-e git://github.com/jbalogh/check.git#egg=check
+-e git://github.com/robhudson/django-debug-toolbar.git#egg=django_debug_toolbar
+-e git://github.com/django-extensions/django-extensions.git#egg=django_extensions
+-e git://github.com/jbalogh/django-nose.git#egg=django-nose
 -e git://github.com/howiworkdaily/django-faq.git#egg=django_faq
 -e git://github.com/samuraisam/django-json-rpc.git#egg=django-json

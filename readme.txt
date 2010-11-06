@@ -1,13 +1,27 @@
-per a instal·lar:
+===================================
+MOTOR
+===================================
 
-Crear un entorn virtual, prèviament instal·lar virtualenv i virtualenvwrapper
 
-mkvirtualenv motor
+Motor es un sistema de reservas hoteleras pensado para operar a 
+través de internet orientado a hoteles y cadenas hoteleras.
 
-workon motor
+A diferencia de otros sistemas parecidos MOTOR es:
 
-pip install -E $VIRTUAL_ENV -r requirements.txt
+	* De código abierto.
+	* Desarrollado en Python, lo que implica una gran versatilidad
+	  legibilidad del código y capacidad de adaptación
+	* Pensado para que cada empresa esté en una base de datos
+ 	  independiente.
 
-on $VIRTUAL_ENV és el path on hi ha l'entorn virtual creat
+Instalación en desarrollo
+=========================
 
-i esperar :)
+Crear un entorno virtual, previamente es necesario tener isntalado virtualenv y virtualenvwrapper
+
+
+	mkvirtualenv motor --no-site-packages
+
+	workon motor
+
+	pip install -r devel_requirements.txt

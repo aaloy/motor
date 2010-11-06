@@ -8,8 +8,7 @@ Vistas para el testeo de disponibilidad
 from motor.core.tarificador import Disponibilidad
 from django.views.generic.simple import direct_to_template
 from motor.core.consulta import Consulta
-from datetime import date, timedelta
-from forms import BuscarForm
+from recepcion.forms import BuscarForm
 LIMITE_BEBES = 2 # se consideran bebés los niños menores de 2 años
 
 def disponibilidad(request):
