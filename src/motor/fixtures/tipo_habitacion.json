@@ -1,0 +1,47 @@
+[
+    {
+        "pk": 1, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": null, 
+            "is_individual": false, 
+            "maximo_total": 5, 
+            "slug": "std", 
+            "maximo": 4, 
+            "descripcion": "Habitaci\u00f3n est\u00e1ndard", 
+            "minimo": 1, 
+            "children": 3, 
+            "is_base": true
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 1, 
+            "is_individual": true, 
+            "maximo_total": 5, 
+            "slug": "dui", 
+            "maximo": 1, 
+            "descripcion": "Doble uso individual", 
+            "minimo": 1, 
+            "children": 2, 
+            "is_base": false
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": null, 
+            "is_individual": true, 
+            "maximo_total": 5, 
+            "slug": "ind", 
+            "maximo": 1, 
+            "descripcion": "Individual", 
+            "minimo": 1, 
+            "children": 1, 
+            "is_base": true
+        }
+    }
+]

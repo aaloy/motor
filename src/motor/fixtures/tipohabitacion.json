@@ -1,0 +1,123 @@
+[
+    {
+        "pk": 1, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": null, 
+            "is_individual": true, 
+            "slug": "ind", 
+            "maximo": 1, 
+            "descripcion": "Habitacion individual", 
+            "minimo": 1, 
+            "children": 0, 
+            "maximo_total": 1,
+            "is_base": true
+        }
+    },
+
+    {
+        "pk": 2, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": null, 
+            "is_individual": false, 
+            "slug": "std", 
+            "maximo": 4, 
+            "descripcion": "Estandard", 
+            "minimo": 1, 
+            "children": 2,
+            "maximo_total": 4,
+            "is_base": true
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 2, 
+            "is_individual": false, 
+            "slug": "std-ind", 
+            "maximo": 1, 
+            "descripcion": "Estandard uso individual", 
+            "minimo": 1, 
+            "children": 0,
+            "maximo_total": 1,
+            "is_base": false
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 2, 
+            "is_individual": false, 
+            "slug": "std-tpl", 
+            "maximo": 1, 
+            "descripcion": "Estandard uso triple", 
+            "minimo": 3, 
+            "children": 2,
+            "maximo_total": 3,
+            "is_base": false
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 2, 
+            "is_individual": false, 
+            "slug": "std-qpl", 
+            "maximo": 1, 
+            "descripcion": "Estandard uso cuadruple", 
+            "minimo": 4, 
+            "children": 2,
+            "maximo_total": 4,
+            "is_base": false
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": null, 
+            "is_individual": false, 
+            "slug": "sui", 
+            "maximo": 4, 
+            "descripcion": "Suite", 
+            "minimo": 1, 
+            "children": 2,
+            "maximo_total": 4,
+            "is_base": true
+        }
+    }, 
+   {
+        "pk": 31, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 3, 
+            "is_individual": false, 
+            "slug": "sui-tpl", 
+            "maximo": 1, 
+            "descripcion": "Suite uso triple", 
+            "minimo": 3, 
+            "children": 2,
+            "maximo_total": 3,
+            "is_base": false
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "motor.tipohabitacion", 
+        "fields": {
+            "parent": 3, 
+            "is_individual": false, 
+            "slug": "sui-qpl", 
+            "maximo": 4, 
+            "descripcion": "Suite uso cuadruple", 
+            "minimo": 4, 
+            "children": 2,
+            "maximo_total": 4,
+            "is_base": false
+        }
+    } 
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "pk": 1, 
+    "model": "motor.regimen", 
+    "fields": {
+      "descripcion": "Media pension", 
+      "slug": "mp", 
+      "parent": null, 
+      "is_base": true
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "motor.regimen", 
+    "fields": {
+      "descripcion": "Pension completa", 
+      "slug": "pc", 
+      "parent": null, 
+      "is_base": false
+    }
+  },
+  {
+    "pk": 3, 
+    "model": "motor.regimen", 
+    "fields": {
+      "descripcion": "Room only", 
+      "slug": "ro", 
+      "parent": null, 
+      "is_base": false
+    }
+  } 
+]

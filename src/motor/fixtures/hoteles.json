@@ -1,0 +1,10 @@
+[
+    {
+        "pk": 1, 
+        "model": "motor.hotel", 
+        "fields": {
+            "nombre": "Hotel de Test", 
+            "slug": "test"
+        }
+    }
+]

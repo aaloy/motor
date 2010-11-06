@@ -1,0 +1,26 @@
+[
+    {
+        "pk": 1, 
+        "model": "motor.contrato", 
+        "fields": {
+            "hotel": 1, 
+            "fecha_fin": "2010-03-31", 
+            "activo": true, 
+            "fecha_inicio": "2010-03-10", 
+            "revisado": true, 
+            "nombre": "primer contrato"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "motor.contrato", 
+        "fields": {
+            "hotel": 1, 
+            "fecha_fin": "2010-04-30", 
+            "activo": true, 
+            "fecha_inicio": "2010-09-30", 
+            "revisado": true, 
+            "nombre": "contrato dos"
+        }
+    }
+]

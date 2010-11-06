@@ -1,0 +1,28 @@
+[
+ {
+        "pk": 1, 
+        "model": "motor.suplementoregimen", 
+        "fields": {
+            "regimen": [
+                "pc"
+            ], 
+            "precio": "20", 
+            "fecha_fin": "2010-09-30", 
+            "fecha_inicio": "2010-03-01", 
+            "hotel": 1 
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "motor.suplementoregimen", 
+        "fields": {
+            "regimen": [
+                "ro"
+            ], 
+            "precio": "-10", 
+            "fecha_fin": "2010-09-30", 
+            "fecha_inicio": "2010-03-10", 
+            "hotel": 1 
+        }
+    } 
+]

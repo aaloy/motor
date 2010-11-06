@@ -1,0 +1,149 @@
+[
+    {
+        "pk": 1, 
+        "model": "motor.contrato", 
+        "fields": {
+            "hotel": 1, 
+            "fecha_fin": "2010-09-30", 
+            "activo": false, 
+            "fecha_inicio": "2010-3-1", 
+            "revisado": false, 
+            "nombre": "primer contrato"
+        }
+    }, 
+  {
+    "pk": 1, 
+    "model": "motor.condicionescontrato", 
+    "fields": {
+        "regimen": 1, 
+        "is_cupo_generado": false, 
+        "cupo": 5, 
+        "precio": "60", 
+        "fecha_fin": "2010-09-30", 
+        "fecha_inicio": "2010-03-1", 
+        "contrato": 1, 
+        "tipo_habitacion": 1, 
+        "is_paro_ventas": false, 
+        "is_apartamento": false, 
+        "is_venta_libre": false
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "motor.condicionescontrato", 
+    "fields": {
+        "regimen": 1, 
+        "is_cupo_generado": false, 
+        "cupo": 10, 
+        "precio": "50", 
+        "fecha_fin": "2010-09-30", 
+        "fecha_inicio": "2010-03-1", 
+        "contrato": 1, 
+        "tipo_habitacion": 2, 
+        "is_paro_ventas": false, 
+        "is_apartamento": false, 
+        "is_venta_libre": false
+    }
+  },
+  {
+    "pk": 3, 
+    "model": "motor.condicionescontrato", 
+    "fields": {
+        "regimen": 1, 
+        "is_cupo_generado": false, 
+        "cupo": 2, 
+        "precio": "80", 
+        "fecha_fin": "2010-09-30", 
+        "fecha_inicio": "2010-03-1", 
+        "contrato": 1, 
+        "tipo_habitacion": 3, 
+        "is_paro_ventas": false, 
+        "is_apartamento": false, 
+        "is_venta_libre": false
+    }
+  },
+ {
+        "pk": 1, 
+        "model": "motor.suplementoocupacion", 
+        "fields": {
+            "fecha_inicio": "2010-03-1", 
+            "fecha_fin": "2010-09-30", 
+            "contrato": 1, 
+            "precio":"10",
+            "porcentaje": "0",
+            "tipo_habitacion": [
+                "std-ind"
+            ]
+        }
+    },
+ {
+        "pk": 2, 
+        "model": "motor.suplementoocupacion", 
+        "fields": {
+            "fecha_inicio": "2010-03-1", 
+            "fecha_fin": "2010-09-30", 
+            "contrato": 1, 
+            "precio":"-10",
+            "porcentaje": "0",
+            "tipo_habitacion": [
+                "std-tpl"
+            ]
+        }
+    },
+
+  {
+        "pk": 3, 
+        "model": "motor.suplementoocupacion", 
+        "fields": {
+            "fecha_inicio": "2010-03-1", 
+            "fecha_fin": "2010-09-30", 
+            "contrato": 1, 
+            "precio":"-15",
+            "porcentaje": "0",
+            "tipo_habitacion": [
+                "std-qpl"
+            ]
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "motor.suplementoocupacion", 
+        "fields": {
+            "fecha_inicio": "2010-03-1", 
+            "fecha_fin": "2010-09-30", 
+            "contrato": 1, 
+            "precio":"-5",
+            "porcentaje": "0",
+            "tipo_habitacion": [
+                "sui-tpl"
+            ]
+        }
+    },
+     {
+        "pk": 5, 
+        "model": "motor.suplementoocupacion", 
+        "fields": {
+            "fecha_inicio": "2010-03-1", 
+            "fecha_fin": "2010-09-30", 
+            "contrato": 1, 
+            "precio":"10",
+            "porcentaje": "0",
+            "tipo_habitacion": [
+                "sui-qpl"
+            ]
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "motor.descuentonin", 
+        "fields": {
+            "porcentaje_2": "0.7", 
+            "porcentaje_3": "0.5", 
+            "fecha_fin": "2010-09-01", 
+            "fecha_inicio": "2010-03-1", 
+            "contrato": 1, 
+            "tipo_habitacion": 2, 
+            "porcentaje": "0.8"
+        }
+    }
+]

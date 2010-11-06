@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+#-*- coding: UTF-8 -*-
+
+from django.conf.urls.defaults import patterns, url
+
+urlpatterns = patterns('motor.views',
+            url(r'^contrato/$', 'nuevo_contrato',
+                    name="nuevo-contrato"),
+            url(r'^contrato/(?P<id>\d+)/$', 'nuevo_contrato',
+                    name="editar-contrato"),
+            url(r'^condiciones_contrato/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_condiciones',
+                    name="editar-condiciones"),
+             url(r'^descuento_ninyos/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_descuento_ninyos',
+                    name="editar-descuento-ninyos"),
+             url(r'^suplemento_regimen/(?P<hotel_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_suplemento_regimen',
+                    name="editar-suplemento-regimen"),
+             url(r'^suplemento_ocupacion/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_suplemento_ocupacion',
+                    name="editar-suplemento-ocupacion"),
+             url(r'^suplemento_dia/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_suplemento_dia',
+                    name="editar-suplemento-dia"),
+             url(r'^restriccion_estancia_minima/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_restriccion_estancia_minima',
+                    name="editar-restriccion-estancia-minima"),
+             url(r'^restriccion_ocupacion/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_restriccion_ocupacion',
+                    name="editar-restriccion-ocupacion"),
+              url(r'^restriccion_blackout/(?P<contrato_id>\d+)/(?:$|(?P<id>\d+)/$)',
+                    'editar_restriccion_blackout',
+                    name="editar-restriccion-blackout"),
+              )
